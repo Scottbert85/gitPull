@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
+    <link rel="stylesheet" type="text/css" href="sh-style.css">
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
@@ -9,12 +10,14 @@
   <body>
     <h1></h1>
     <div class="container">
-      <form onsubmit="addGraduate(event)">
+      <form onsubmit="addPerson(event)">
           <input type="text" placeholder="First" id="firstName" />
           <input type="text" placeholder="Last" id="lastName" />
           <button class="btn waves-effect waves-light" type="submit" name="action">Submit</button>
       </form>
+      <button class="btn waves-effect waves-light" onclick="renderPersons()">Show People</button>
   </div>
   <div id="results"></div>
+  <script src="sh-script.js"></script>
   </body>
 </html>
