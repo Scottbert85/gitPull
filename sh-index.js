@@ -1,16 +1,19 @@
 const mongoose = require("mongoose");
 const express = require("express");
-const keys = require("./config/keys");
+const {connect} = require('./config/config');
+
+const person=require('./routes/api/sh-person')
 
 const app = express();
 
 app.use(express.json());
 
 mongoose
-  .connect(keys.mongoUri)
+  .connect(connect, {useNewUrlParser: true, useUnifiedTopology: true})
   .then(() => console.log("connected to db"))
   .catch(error => console.log("DB Connection error", error));
 
 app.use(express.static("public"));
+app.use('/api/person', person);
 
 app.listen(3000, () => console.log("listening on port 3000"));
